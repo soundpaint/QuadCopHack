@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Specification-Title: N.A.
+Created-By: Jürgen Reuter
+Implementation-Title: QuadCopApp
+Specification-Vendor: Juergen Reuter
+Implementation-Vendor: Juergen Reuter
+Class-Path: /usr/share/arduino/lib/RXTXcomm.jar
+Main-Class: org.soundpaint.qcapp.QuadCopApp

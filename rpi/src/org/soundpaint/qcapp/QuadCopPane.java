@@ -58,7 +58,6 @@ public class QuadCopPane extends JComponent implements QCRecorder
       throw new NullPointerException("quadCopApp");
     }
     this.quadCopApp = quadCopApp;
-    loaded = false;
     Dimension dimension = new Dimension(200, 100);
     quadCopImage = null;
     leftCtrlImage = null;
@@ -72,8 +71,10 @@ public class QuadCopPane extends JComponent implements QCRecorder
       loaded = true;
     } catch (final IOException ex) {
       showLoadError(ex.getMessage());
+      loaded = false;
     } catch (final IllegalArgumentException ex) {
       showLoadError(ex.getMessage());
+      loaded = false;
     }
     setPreferredSize(dimension);
   }
@@ -114,19 +115,8 @@ public class QuadCopPane extends JComponent implements QCRecorder
     }
   }
 
-  private byte count = 0; // DEBUG
-
   public void recordReceived(final QuadCop.DataRecord record)
   {
-    // DEBUG START
-    /*
-    if (count == 0) {
-      System.out.println(record);
-    }
-    count = (byte)((count + 1) & 0x7f);
-    */
-    // DEBUG END
-
     status = record.getStatus();
     ctrlLever0 = record.getCtrlLever0();
     ctrlLever1 = record.getCtrlLever1();

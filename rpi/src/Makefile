@@ -21,7 +21,7 @@ SRC_DIR=$(ROOT_DIR)/src
 BUILD_DIR=$(ROOT_DIR)/build
 JAR_DIR=$(ROOT_DIR)/jar
 
-RXTXCOMM_JAR=/usr/share/arduino/lib/RXTXcomm.jar
+RXTXCOMM_JAR=/usr/share/java/RXTXcomm.jar
 CLASSPATH=$(SRC_DIR):$(BUILD_DIR):$(RXTXCOMM_JAR)
 
 JAVA_SRC=$(wildcard $(SRC_DIR)/org/soundpaint/qcapp/*.java)

@@ -4,5 +4,5 @@ Created-By: Jürgen Reuter
 Implementation-Title: QuadCopApp
 Specification-Vendor: Juergen Reuter
 Implementation-Vendor: Juergen Reuter
-Class-Path: /usr/share/arduino/lib/RXTXcomm.jar
+Class-Path: /usr/share/java/RXTXcomm.jar
 Main-Class: org.soundpaint.qcapp.QuadCopApp

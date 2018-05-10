@@ -198,9 +198,51 @@ Back signal (1 out of 6):
 
 #### LED Bargraph Display Matrix
 
+The 74LS138 demultiplexer / decoder is used to address one row of the
+matrix after the other in order to keep the number of required data
+lines limited: D10..D11 are for selecting one of 5 rows of the matrix,
+while D0..D9 carry the data for the selected row.  Consequently, the
+software on the Arduino board must loop over the rows sufficiently
+fast to achieve a flicker-free display.
+
 ![Fig. 17 LED Bargraph Display Matrix](doc/images/img20.png)
 
 **Fig. 17 LED Bargraph Display Matrix**
+
+<br />
+
+#### Power Supply for Remote Control
+
+Originally, the remote control is powered by two AAA type batteries,
+resulting in a voltage of around 3V.  Internally, the remote control
+(obviously) has a step-up voltage converter that converts the battery
+power to a 3.3V level.
+
+For valid operation, minimally the remote control's ground voltage
+level has to be connected to our common ground voltage level, such
+that all other voltage levels operate on a well-defined level.  I
+decided to also replace the battery power with a 3.3V voltage
+generated with a LD1117 3.3V voltage regulator powered from the
+Arduino's 5V line.
+
+![Fig. 18 Power Supply for Remote Control](doc/images/img21.png)
+
+**Fig. 18 Power Supply for Remote Control**
+
+<br />
+
+#### Prototype wiring technique
+
+I am using a somewhat unconventional technique of prototype wiring
+with a (way to much) dissipative amount of solder.  You may laugh at
+me, but it works!  Even when operating with high frequencies in the
+tens-of-megahertz range (not really an issue for this project,
+though).  And yes, you can recycle most of the solder for the next
+project.
+
+![Fig. 19 Prototype wiring technique](doc/images/img22.png)
+
+**Fig. 19 Prototype wiring technique**
 
 <br />
 
@@ -214,7 +256,7 @@ Raspberry Pi board via serial data interface.
 
 ### Raspberry Pi Board
 
-An Raspberry Pi 3 Board with Raspbian GNU/Linux 9 (stretch) operating
+A Raspberry Pi 3 Board with Raspbian GNU/Linux 9 (stretch) operating
 system hosts the Java Software “QuadCopApp” with Java Swing based GUI.
 The software is used to persistently store and recall recorded flight
 data, even at larger scale.  Not yet implemented but already
@@ -222,9 +264,9 @@ envisioned is also a flight data editor for either viewing and
 modifying recorded flight data or even create flight data from
 scratch.
 
-![Fig. 18 “QuadCopApp” Java Application](doc/images/img21.png)
+![Fig. 20 “QuadCopApp” Java Application](doc/images/img23.png)
 
-**Fig. 18 “QuadCopApp” Java Application**
+**Fig. 20 “QuadCopApp” Java Application**
 
 <br />
 
@@ -262,7 +304,7 @@ Detailed documentation to be added.
 * Install a recent Raspbian version (such as Raspbian GNU/Linux 9
   (stretch)).
 
-* Install the ```RXTXcomm.jar``` library.
+* Install the `RXTXcomm.jar` library.
 
   In order to run the `QuadCopApp` application, you need to have
   installed the _Java RXTX library_, typcially flying around as file
@@ -272,33 +314,44 @@ Detailed documentation to be added.
   you can not find the file `RXTXcomm.jar` anywhere, try installing
   the library with the following command:
 
-  ```$ sudo apt-get install librxtx-java```
+```console
+$ sudo apt-get install librxtx-java
+```
 
 * Go to your Raspberry Pi's home directory:
 
-  ```$ cd```
+```console
+$ cd
+```
 
 * Clone all of the QuadCop software from github:
 
-  ```$ git clone https://github.com/soundpaint/QuadCopHack.git```
+```console
+$ git clone https://github.com/soundpaint/QuadCopHack.git
+```
 
-* Go to the directory with the Java ```QuadCopApp``` application:
+* Go to the directory with the Java `QuadCopApp` application:
 
-  ```$ cd QuadCopHack/rpi/src```
+```console
+$ cd QuadCopHack/rpi/src
+```
 
-* Compile the Java ```QuadCopApp``` application:
+* Compile the Java `QuadCopApp` application:
 
-  ```$ make all```
+```console
+$ make all
+```
 
 * Provided all hardware components are correctly connected, you are
-  now ready to run the Java ```QuadCopyApp``` application:
+  now ready to run the Java `QuadCopyApp` application:
 
-  ```$ java -Djava.library.path=/usr/lib/jni -jar ../jar/QuadApp.jar```
+```console
+$ java -Djava.library.path=/usr/lib/jni -jar ../jar/QuadApp.jar
+```
 
-* Make sure, that at startup of the ```QuadCopApp``` application, the
+* Make sure, that at startup of the `QuadCopApp` application, the
   arduino is up and connected via USB to the Raspberry Pi.  Otherwise,
-  the ```QuadCopApp``` will show the error message “no serial port
-  found”.
+  the `QuadCopApp` will show the error message “no serial port found”.
 
 #### Transport Layer: Interface Driver for Arduino
 

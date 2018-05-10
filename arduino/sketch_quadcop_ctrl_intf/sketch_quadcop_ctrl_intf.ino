@@ -87,7 +87,7 @@ void setup() {
 
   pinMode(demuxEnablePin, OUTPUT);
   digitalWrite(demuxEnablePin, LOW);
-  pinMode(arduinoActivityLEDPin, OUTPUT);      
+  pinMode(arduinoActivityLEDPin, OUTPUT);
   digitalWrite(arduinoActivityLEDPin, OFF);
 
   for (int demuxValBit = 0; demuxValBit < DEMUX_VAL_SIZE; demuxValBit++) {
@@ -102,7 +102,7 @@ void setup() {
 
   testLEDs(true);
   testLEDs(false);
-  
+
   setMode(MODE_LISTEN);
 }
 
@@ -310,7 +310,7 @@ void updateArduinoActivityLED()
 
   const unsigned long currentMillis = millis();
   if (currentMillis - previousMillis > interval) {
-    previousMillis = currentMillis;   
+    previousMillis = currentMillis;
     if (arduinoActivityLEDState == OFF) {
       arduinoActivityLEDState = ON;
     } else {

@@ -23,6 +23,7 @@ JAR_DIR=$(ROOT_DIR)/jar
 
 RXTXCOMM_JAR=/usr/share/java/RXTXcomm.jar
 CLASSPATH=$(SRC_DIR):$(BUILD_DIR):$(RXTXCOMM_JAR)
+JNI_SO_DIR=/usr/lib/jni
 
 JAVA_SRC=$(wildcard $(SRC_DIR)/org/soundpaint/qcapp/*.java)
 JAVA_OBJ=$(patsubst $(SRC_DIR)/%.java,$(BUILD_DIR)/%.class,$(JAVA_SRC))
@@ -59,7 +60,7 @@ tags:
 	etags *.java
 
 run:
-	java -cp $(RXTXCOMM_JAR) -jar $(JAR_OBJ)
+	java -Djava.library.path=$(JNI_SO_DIR) -jar $(JAR_OBJ)
 
 objclean:
 	- rm -rf $(BUILD_DIR)

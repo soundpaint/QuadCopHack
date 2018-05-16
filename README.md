@@ -4,6 +4,10 @@ Hacking a Quadcop for Adding a Computer Controllable Interface
 This project is for interested makers showing how to equip a low-cost
 quadcop with a computer interface.
 
+For more documentation, see also my [talk at GPN 18][1] (in German
+language) as well as the corresponding slides as
+[OpenDocument presentation (.odp) file][2] (in English language).
+
 Features
 --------
 
@@ -411,3 +415,6 @@ $ java -Djava.library.path=/usr/lib/jni -jar ../jar/QuadApp.jar
 ##### Session Control GUI
 
 ##### Graphical Flight Data Editor (not yet implemented)
+
+[1]: https://media.ccc.de/v/gpn18-169-hacking-a-15-quadcop-for-adding-a-computer-interface-for-flight-control
+[2]: ./doc/talk-gpn18/quadcop-talk.odp

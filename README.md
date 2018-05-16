@@ -150,17 +150,52 @@ antenna and thus the frequency and / or transmission quality:
 
 <br />
 
+#### Terminator Plug
+
+So far, we basically have two types of modifications applied to the
+remote control unit:
+
+* just adding a wire that is soldered to some tapping point, but does
+  not change the circuitry, and
+* cutting an existing connection and leading out two open-ended wires
+  that are soldered to the two cutting points.
+
+For still keeping the remote control operational without additional
+circuitry, we simply reconnect the open ends of the cut connections,
+assuming that the resistance of the wires as well as induction issues
+are neglectible.
+
+To build a terminator for the open ended wired, we reconnect the open
+ends by soldering small jumpers onto a female panel mount solder D-sub
+connector plug:
+
+![Fig. 13 ](doc/images/img15.png)
+
+**Fig. 13 Terminator plug**
+
+<br />
+
+When plugging this terminator into the male remote control's plug, the
+cut connections are reconnected, and we can use the remote control
+with no further hardware required.
+
+![Fig. 14 ](doc/images/img16.png)
+
+**Fig. 14 Terminator plugged into remote control's plug**
+
+<br />
+
 ### Analog Signal Conversion Board
 
 View onto analog signal conversion board with LED bargraphs that
 display pilot stick position, as well as remote control push button
 status LEDs:
 
-![Fig. 13a Analog Signal Conversion Board](doc/images/img15.png)
+![Fig. 15a Analog Signal Conversion Board](doc/images/img17.png)
 
-![Fig. 13b Analog Signal Conversion Board](doc/images/img16.png)
+![Fig. 15b Analog Signal Conversion Board](doc/images/img18.png)
 
-**Fig. 13 Analog Signal Conversion Board**
+**Fig. 15 Analog Signal Conversion Board**
 
 <br />
 
@@ -172,9 +207,9 @@ status LEDs:
 * 490Hz PWM signal smoothing via low pass filter, with cut-off
   frequency near-by 10Hz
 
-![Fig. 14 Analog Signal Conditioning](doc/images/img17.png)
+![Fig. 16 Analog Signal Conditioning](doc/images/img19.png)
 
-**Fig. 14 Analog Signal Conditioning**
+**Fig. 16 Analog Signal Conditioning**
 
 <br />
 
@@ -182,17 +217,17 @@ status LEDs:
 
 Common signal tap shared among all 6 push buttons:
 
-![Fig. 15 Common Push Buttons Tap](doc/images/img18.png)
+![Fig. 17 Common Push Buttons Tap](doc/images/img20.png)
 
-**Fig. 15 Common Push Buttons Tap**
+**Fig. 17 Common Push Buttons Tap**
 
 <br />
 
 Back signal (1 out of 6):
 
-![Fig. 16 Push Button Back Signal](doc/images/img19.png)
+![Fig. 18 Push Button Back Signal](doc/images/img21.png)
 
-**Fig. 16 Push Button Back Signal**
+**Fig. 18 Push Button Back Signal**
 
 <br />
 
@@ -205,9 +240,9 @@ while D0..D9 carry the data for the selected row.  Consequently, the
 software on the Arduino board must loop over the rows sufficiently
 fast to achieve a flicker-free display.
 
-![Fig. 17 LED Bargraph Display Matrix](doc/images/img20.png)
+![Fig. 19 LED Bargraph Display Matrix](doc/images/img22.png)
 
-**Fig. 17 LED Bargraph Display Matrix**
+**Fig. 19 LED Bargraph Display Matrix**
 
 <br />
 
@@ -225,9 +260,9 @@ decided to also replace the battery power with a 3.3V voltage
 generated with a LD1117 3.3V voltage regulator powered from the
 Arduino's 5V line.
 
-![Fig. 18 Power Supply for Remote Control](doc/images/img21.png)
+![Fig. 20 Power Supply for Remote Control](doc/images/img23.png)
 
-**Fig. 18 Power Supply for Remote Control**
+**Fig. 20 Power Supply for Remote Control**
 
 <br />
 
@@ -240,9 +275,9 @@ tens-of-megahertz range (not really an issue for this project,
 though).  And yes, you can recycle most of the solder for the next
 project.
 
-![Fig. 19 Prototype wiring technique](doc/images/img22.png)
+![Fig. 21 Prototype wiring technique](doc/images/img24.png)
 
-**Fig. 19 Prototype wiring technique**
+**Fig. 21 Prototype wiring technique**
 
 <br />
 
@@ -264,9 +299,9 @@ envisioned is also a flight data editor for either viewing and
 modifying recorded flight data or even create flight data from
 scratch.
 
-![Fig. 20 “QuadCopApp” Java Application](doc/images/img23.png)
+![Fig. 22 “QuadCopApp” Java Application](doc/images/img25.png)
 
-**Fig. 20 “QuadCopApp” Java Application**
+**Fig. 22 “QuadCopApp” Java Application**
 
 <br />
 
